@@ -1,9 +1,9 @@
 // variables
 var words = ["mermaid", "narwhal", "sharks", "fish", "shipwreck", "water", "seaweed"];
 var hiddenWord = "";
+var numGuess = 15;
+var guessed = [];
 // var wins;
-// var numGuesses;
-// var guessed = [];
 
 
 //set currentWord
@@ -14,7 +14,7 @@ for (i = 0; i < randomWord.length; i++) {
     console.log(randomWord);
     hiddenWord += "_";
 }
-displayInfo(hiddenWord);
+displayInfo(hiddenWord, numGuess);
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
@@ -31,14 +31,19 @@ document.onkeyup = function (event) {
                 hiddenWord = hiddenWord.substring(0, i) + userGuess + hiddenWord.substring(i + 1);
             }
         }
-    } 
-    displayInfo(hiddenWord);
+    } else{
+        numGuess--;
+        guessed.push (userGuess);
+    }
+    displayInfo(hiddenWord, numGuess);
 }
 
 //Functions
 //Display function
-function displayInfo(hiddenWord) {
+function displayInfo(hiddenWord, numGuess) {
     //displaying hidden word
     var displayString = hiddenWord.split('').join(' ');
     document.querySelector("#currentWord").innerHTML = displayString;
+    document.querySelector("#numGuesses").innerHTML = numGuess;
+    document.querySelector("#guessed").innerHTML = guessed;
 }
