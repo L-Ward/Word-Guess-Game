@@ -1,5 +1,5 @@
 // variables
-var words = ["mermaid", "narwhal", "sharks", "fish", "shipwreck", "water", "seaweed"];
+var words = ["mermaid", "narwhal", "shark", "fish", "shipwreck", "water", "seaweed", "coral", "anemone", "octopus", "atlantis", "seahorse", "spongebob", "submarines"];
 var hiddenWord = "";
 var numGuess = 15;
 var guessed = [];
