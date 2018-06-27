@@ -4,17 +4,9 @@ var hiddenWord = "";
 var numGuess = 15;
 var guessed = [];
 var wins = 0;
+var randomWord = "";
 
-
-//set currentWord
-var randomWord = words[Math.floor(Math.random() * words.length)];
-
-//Replacing string characters with _
-for (i = 0; i < randomWord.length; i++) {
-    console.log(randomWord);
-    hiddenWord += "_";
-}
-displayInfo(hiddenWord, numGuess, guessed) ;
+initializeGameData();
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
@@ -52,13 +44,40 @@ function displayInfo(hiddenWord, numGuess, guessed) {
     document.querySelector("#currentWord").innerHTML = displayString;
     document.querySelector("#numGuesses").innerHTML = numGuess;
     document.querySelector("#guessed").innerHTML = guessed;
+    document.querySelector("#wins").innerHTML = wins;
+}
+
+function initializeGameData() {
+    //set currentWord
+    randomWord = words[Math.floor(Math.random() * words.length)];
+
+    //Replacing string characters with _
+    for (i = 0; i < randomWord.length; i++) {
+        console.log(randomWord);
+        hiddenWord += "_";
+    }
+
+    displayInfo(hiddenWord, numGuess, guessed);
 }
 
 function checkWinConditions() {
     if (hiddenWord === randomWord) {
         wins++;
         alert("You win!");
+        reset();
     } else if (numGuess <= 0) {
         alert("You lose.");
+        reset();
     }
+}
+
+function reset() {
+    //rest the user guesses array to empty
+    guessed = [];
+    //reset guess count
+    numGuess = 15;
+    //reset hidden word
+    hiddenWord = "";
+    initializeGameData()
+    
 }
