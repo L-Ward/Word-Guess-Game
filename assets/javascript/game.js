@@ -3,7 +3,7 @@ var words = ["mermaid", "narwhal", "sharks", "fish", "shipwreck", "water", "seaw
 var hiddenWord = "";
 var numGuess = 15;
 var guessed = [];
-// var wins;
+var wins = 0;
 
 
 //set currentWord
@@ -14,7 +14,7 @@ for (i = 0; i < randomWord.length; i++) {
     console.log(randomWord);
     hiddenWord += "_";
 }
-displayInfo(hiddenWord, numGuess);
+displayInfo(hiddenWord, numGuess, guessed) ;
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
@@ -24,7 +24,6 @@ document.onkeyup = function (event) {
     //Check if userGuess exists in randomWord string
     var ug = randomWord.includes(userGuess);
     if (ug === true) {
-        //may need to loop through this to see if userGuess exists multiple times
         //If userGuess exists replace _ with userGuess
         for (i = 0; i < randomWord.length; i++) {
             if (randomWord[i] === userGuess) {
@@ -32,22 +31,34 @@ document.onkeyup = function (event) {
             }
         }
     } else {
+        //Prevent user from inputting same guess multiple times
         if (guessed.includes(userGuess)) {
             alert("You've already tried that one.");
         } else {
+            //decrement gues counter and store user input
             numGuess--;
             guessed.push(userGuess);
         }
     }
-    displayInfo(hiddenWord, numGuess);
+    displayInfo(hiddenWord, numGuess, guessed);
+    checkWinConditions();
 }
 
 //Functions
 //Display function
-function displayInfo(hiddenWord, numGuess) {
+function displayInfo(hiddenWord, numGuess, guessed) {
     //displaying hidden word
     var displayString = hiddenWord.split('').join(' ');
     document.querySelector("#currentWord").innerHTML = displayString;
     document.querySelector("#numGuesses").innerHTML = numGuess;
     document.querySelector("#guessed").innerHTML = guessed;
+}
+
+function checkWinConditions() {
+    if (hiddenWord === randomWord) {
+        wins++;
+        alert("You win!");
+    } else if (numGuess <= 0) {
+        alert("You lose.");
+    }
 }
