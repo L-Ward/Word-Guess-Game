@@ -31,9 +31,13 @@ document.onkeyup = function (event) {
                 hiddenWord = hiddenWord.substring(0, i) + userGuess + hiddenWord.substring(i + 1);
             }
         }
-    } else{
-        numGuess--;
-        guessed.push (userGuess);
+    } else {
+        if (guessed.includes(userGuess)) {
+            alert("You've already tried that one.");
+        } else {
+            numGuess--;
+            guessed.push(userGuess);
+        }
     }
     displayInfo(hiddenWord, numGuess);
 }
