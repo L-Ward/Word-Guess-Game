@@ -1,5 +1,5 @@
 // variables
-var words = ["mermaid", "narwhal", "shark", "fish", "shipwreck", "water", "seaweed", "coral", "anemone", "octopus", "atlantis", "seahorse", "spongebob", "submarines"];
+var words = ["mermaid", "buccaneer", "scurvy", "captain", "shipwreck", "parrot", "kraken", "skull", "pegleg", "booty", "blunderbuss", "compass", "landlubber", "cutlass"];
 var hiddenWord = "";
 var numGuess = 15;
 var guessed = [];
@@ -63,6 +63,8 @@ function initializeGameData() {
 function checkWinConditions() {
     if (hiddenWord === randomWord) {
         wins++;
+        var audio = document.getElementById("soundClip");
+        audio.play();
         alert("You win!");
         reset();
     } else if (numGuess <= 0) {
@@ -79,5 +81,4 @@ function reset() {
     //reset hidden word
     hiddenWord = "";
     initializeGameData()
-    
 }
