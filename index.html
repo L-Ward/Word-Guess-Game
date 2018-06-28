@@ -27,8 +27,23 @@
         </div>
     </nav>
 
-    <!-- Content for game -->
+    <!-- You win notification -->
+    <div class="notification">
+        <div id="winFlag">
+            <p>You win!!!</p>
+            <img class="img-responsive" src="assets/images/treasure.png" alt="treasure" width="100" height=auto>
+            <p>Press space-bar to continue.</p>
+        </div>
+        <!-- You lose notification -->
+        <div id="lostFlag">
+            <p>You lose.</p>
+            <img class="img-responsive" src="assets/images/skull.png" alt="skull" width="100" height=auto>
+            <p>Press space-bar to continue.</p>
+        </div>
+    </div>
+
     <div class="container">
+        <!-- Content for game -->
         <div class="row gameContent">
             <div class="col-sm-12">
                 <p>Current Word:
@@ -51,6 +66,7 @@
                 </p>
             </div>
         </div>
+
     </div>
 
     <footer>
@@ -58,7 +74,7 @@
     </footer>
 
     <!-- Sounds for wins -->
-    <audio id = "soundClip">
+    <audio id="soundClip">
         <source src="./assets/audio/401931__qalba4j__piratematt-1.wav"></source>
     </audio>
 

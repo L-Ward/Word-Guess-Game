@@ -36,8 +36,30 @@ h2 {
     font-size: 18pt;
 }
 
+.notification {
+    max-width: 25%;
+}
+
+#winFlag {
+    border: 3px solid black;
+    display: none;
+    /* display: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden; */
+}
+
+#lostFlag {
+    border: 3px solid black;
+    display: none;
+    /* display: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden; */
+}
+
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     width: 100%;
     height: 30px;
