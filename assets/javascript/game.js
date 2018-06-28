@@ -7,8 +7,8 @@ var wins = 0;
 var randomWord = "";
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-initializeGameData();
 
+initializeGameData();
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
     // Determines which key was pressed.
@@ -41,21 +41,23 @@ document.onkeyup = function (event) {
         }
     }
 
-//Functions
+//Functions:
 //Display function
 function displayInfo(hiddenWord, numGuess, guessed) {
     //displaying hidden wordwith spaces between underscores
     var displayString = hiddenWord.split('').join(' ');
+    //updating game stats
     document.querySelector("#currentWord").innerHTML = displayString;
     document.querySelector("#numGuesses").innerHTML = numGuess;
     document.querySelector("#guessed").innerHTML = guessed;
     document.querySelector("#wins").innerHTML = wins;
 }
 
+//Intialize game
 function initializeGameData() {
     //set currentWord
     randomWord = words[Math.floor(Math.random() * words.length)];
-    //Replacing string characters with _
+    //Hiding current word by replacing string characters with an underscore
     for (i = 0; i < randomWord.length; i++) {
         console.log(randomWord);
         hiddenWord += "_";
@@ -63,6 +65,7 @@ function initializeGameData() {
     displayInfo(hiddenWord, numGuess, guessed);
 }
 
+//checking game state
 function checkWinConditions() {
     if (hiddenWord === randomWord) {
         wins++;
@@ -74,6 +77,7 @@ function checkWinConditions() {
     }
 }
 
+//Reset the game
 function reset() {
     //rest the user guesses array to empty
     guessed = [];
