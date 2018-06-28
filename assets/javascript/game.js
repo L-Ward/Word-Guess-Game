@@ -5,16 +5,18 @@ var numGuess = 15;
 var guessed = [];
 var wins = 0;
 var randomWord = "";
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 initializeGameData();
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
     // Determines which key was pressed.
-    var userGuess = event.key;
+    var userGuess = event.key.toLowerCase();
+
         if (event.keyCode == 32) {
             reset();
-        } else {
+        } else if (letters.indexOf(userGuess) > -1) {
             //Check if userGuess exists in randomWord string
             var ug = randomWord.includes(userGuess);
             if (ug === true) {

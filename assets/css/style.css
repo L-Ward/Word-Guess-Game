@@ -18,7 +18,6 @@ h2 {
     color: #B20000;
     font-family: 'IM Fell English SC', serif;
     font-size: 400%;
-    /* transform: rotate(-20deg); */
     z-index: 10;
     position: relative;
     left: 75px;
@@ -38,6 +37,7 @@ h2 {
 
 .notification {
     max-width: 25%;
+    float: left;
 }
 
 #winFlag {
@@ -61,6 +61,7 @@ h2 {
 footer {
     position: fixed;
     bottom: 0px;
+    margin-top: 20px;
     width: 100%;
     height: 30px;
     border-top: 3px solid black;
