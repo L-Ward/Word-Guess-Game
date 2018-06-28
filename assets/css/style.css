@@ -38,6 +38,9 @@ h2 {
 .notification {
     max-width: 25%;
     float: left;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 18pt;
+    text-align: center;
 }
 
 #winFlag {
