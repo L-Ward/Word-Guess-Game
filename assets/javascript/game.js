@@ -16,7 +16,7 @@ document.onkeyup = function (event) {
 
         if (event.keyCode == 32) {
             reset();
-        } else if (letters.indexOf(userGuess) > -1) {
+        } else if (letters.indexOf(userGuess) > -1 && numGuess > 0) {
             //Check if userGuess exists in randomWord string
             var ug = randomWord.includes(userGuess);
             if (ug === true) {
